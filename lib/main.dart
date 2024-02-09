@@ -272,3 +272,47 @@ class RoundedButton extends StatelessWidget {
   }
 }
 
+
+class CoffeeCheckoutSection extends StatelessWidget {
+  const CoffeeCheckoutSection({super.key, required this.price, required this.button});
+
+  final String price;
+  final Widget button;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 40),
+      child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(right: 40, left: 25, bottom: 5),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Price",
+                    style: TextStyle(
+                        color: Colors.black.withOpacity(0.25),
+                        fontFamily: "Sora",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                  ),
+                  Text(
+                    price,
+                    style: TextStyle(
+                        color: myCoffeeColor,
+                        fontFamily: "Sora",
+                        fontWeight: FontWeight.bold,
+                        fontSize: 21),
+                  )
+                ],
+              ),
+            ),
+            Expanded(child: button),
+          ],
+      ),
+    );
+  }
+}
+
