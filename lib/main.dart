@@ -173,7 +173,58 @@ class CoffeeDescriptionSection extends StatelessWidget {
   }
 }
 
+class CoffeeSizeSection extends StatelessWidget {
+  const CoffeeSizeSection({super.key});
 
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 360,
+      height: 400,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 10),
+          const Text(
+            "Size",
+            style: TextStyle(
+                fontFamily: "Sora", fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              const Expanded(
+                  child: RoundedButton(
+                      height: 50.0,
+                      fontSize: 15,
+                      text: "S",
+                      textColor: Colors.black,
+                      buttonColor: Colors.white,
+                      borderColor: Colors.grey)),
+              Expanded(
+                  child: RoundedButton(
+                      height: 50.0,
+                      fontSize: 15,
+                      text: "M",
+                      textColor: myCoffeeColor,
+                      buttonColor: Colors.pink.shade50,
+                      borderColor: myCoffeeColor)),
+              const Expanded(
+                  child: RoundedButton(
+                      height: 50.0,
+                      fontSize: 15,
+                      text: "L",
+                      textColor: Colors.black,
+                      buttonColor: Colors.white,
+                      borderColor: Colors.grey)),
+            ],
+          ),
+          const SizedBox(height: 15),
+        ],
+      ),
+    );
+  }
+}
 
 
 
