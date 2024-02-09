@@ -1,4 +1,4 @@
-name: orderpage
+name: app
 description: "A new Flutter project."
 publish_to: 'none'
 version: 0.1.0
@@ -17,3 +17,14 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+          - images/Heart.jpg
+          - images/milk.jpg
+          - images/Rectangle 1706.jpg
+          - images/arrow-left.jpg
+          - images/bean.jpg
+
+fonts:
+      - family: Sora
+        fonts:
+              - asset: fonts/Sora-VariableFont_wght.ttf
