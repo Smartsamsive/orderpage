@@ -126,3 +126,54 @@ class CoffeeHomePage extends StatelessWidget {
         ));
   }
 }
+
+class CoffeeDescriptionSection extends StatelessWidget {
+  const CoffeeDescriptionSection({super.key, required this.description});
+
+  final String description;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const SizedBox(
+          width: 360,
+          child: Text(
+            "Description",
+            style: TextStyle(
+                fontFamily: "Sora", fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+        ),
+        const SizedBox(height: 10.0),
+        SizedBox(
+          width: 360,
+          child: RichText(
+              textAlign: TextAlign.justify,
+              text: TextSpan(children: [
+                TextSpan(
+                  text: "$description..",
+                  style: TextStyle(
+                      fontFamily: "Sora",
+                      fontSize: 18,
+                      color: Colors.black.withOpacity(0.25),
+                      fontWeight: FontWeight.bold),
+                ),
+                TextSpan(
+                    text: "Read More",
+                    style: TextStyle(
+                        fontFamily: "Sora",
+                        fontSize: 18,
+                        color: myCoffeeColor,
+                        fontWeight: FontWeight.bold))
+              ])),
+        ),
+        const SizedBox(height: 10.0),
+      ],
+    );
+  }
+}
+
+
+
+
+
