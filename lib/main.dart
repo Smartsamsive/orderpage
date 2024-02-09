@@ -226,5 +226,49 @@ class CoffeeSizeSection extends StatelessWidget {
   }
 }
 
+class RoundedButton extends StatelessWidget {
+  const RoundedButton(
+      {super.key,
+      required this.text,
+      required this.textColor,
+      required this.buttonColor,
+      required this.borderColor,
+      required this.height,
+      required this.fontSize});
 
+  final String text;
+  final Color textColor;
+  final Color buttonColor;
+  final Color borderColor;
+  final double height;
+  final double fontSize;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      // ignore: sized_box_for_whitespace
+      child: Container(
+        height: height,
+        child: OutlinedButton(
+          onPressed: () {},
+          style: OutlinedButton.styleFrom(
+            foregroundColor: textColor,
+            side: BorderSide(color: borderColor),
+            backgroundColor: buttonColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(14.0),
+            ),
+          ),
+          child: Text(text,
+              style: TextStyle(
+                  color: textColor,
+                  fontFamily: "Sora",
+                  fontSize: fontSize,
+                  fontWeight: FontWeight.bold)),
+        ),
+      ),
+    );
+  }
+}
 
