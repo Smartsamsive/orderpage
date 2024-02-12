@@ -12,6 +12,7 @@ class CoffeeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Coffee App",
       theme: ThemeData(
         useMaterial3: true,
@@ -30,8 +31,8 @@ class CoffeeHomePage extends StatelessWidget {
         appBar: AppBar(
             title: const CustomAppBar(
                 title: "Detail",
-                firstIcon: "images/arrow-left.jpg",
-                secondIcon: "images/Heart.jpg")),
+                firstImage: "images/arrow-left.jpg",
+                secondImage: "images/Heart.jpg")),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -47,9 +48,9 @@ class CoffeeHomePage extends StatelessWidget {
               Row(
                 children: [
                   const Expanded(
-                    child: CoffeeMenuItem(
+                    child: CoffeeOfChoice(
                       description: "with Chocolate",
-                      coffeeItem: "Cappucino",
+                      foodItem: "Cappucino",
                       rating: 4.8,
                       quantity: 230,
                     ),
@@ -124,6 +125,112 @@ class CoffeeHomePage extends StatelessWidget {
                   borderColor: myCoffeeColor,
                   height: 70)),
         ));
+  }
+}
+
+class CustomAppBar extends StatelessWidget {
+  const CustomAppBar(
+      {super.key,
+      required this.title,
+      required this.firstImage,
+      required this.secondImage});
+
+  final String title;
+  final String firstImage;
+  final String secondImage;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(right: 95.0),
+          child: Image.asset(firstImage),
+        ),
+        Text(
+          title,
+          style: const TextStyle(
+              fontFamily: "Sora", fontSize: 20.0, fontWeight: FontWeight.bold),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 95.0),
+          child: Image.asset(secondImage),
+        )
+      ],
+    );
+  }
+}
+
+class CoffeeOfChoice extends StatelessWidget {
+  const CoffeeOfChoice(
+      {super.key,
+      required this.description,
+      required this.foodItem,
+      required this.quantity,
+      required this.rating});
+
+  final String foodItem;
+  final String description;
+  final double rating;
+  final int quantity;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 35),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                foodItem,
+                style: const TextStyle(
+                    fontFamily: "Sora",
+                    fontWeight: FontWeight.bold,
+                    fontSize: 23.5),
+              ),
+              const SizedBox(height: 8.0),
+              Text(
+                description,
+                style: TextStyle(
+                    fontFamily: "Sora",
+                    color: Colors.black.withOpacity(0.25),
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 10.0),
+              Row(
+                children: [
+                  const Icon(
+                    Icons.star,
+                    color: Colors.yellow,
+                    size: 28.0,
+                  ),
+                  Text(
+                    "$rating",
+                    style: const TextStyle(
+                        fontFamily: "Sora",
+                        fontSize: 19,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "($quantity)",
+                    style: TextStyle(
+                        fontFamily: "Sora",
+                        fontSize: 16,
+                        color: Colors.black.withOpacity(0.25),
+                        fontWeight: FontWeight.bold),
+                  )
+                ],
+              )
+            ],
+          ),
+        ),
+        const Spacer(),
+      ],
+    );
   }
 }
 
